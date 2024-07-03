@@ -43,3 +43,24 @@ resource "google_project_iam_member" "pubsub_invoker" {
   member  = "serviceAccount:${google_service_account.adozoo_cc.email}"
 }
 
+# resource "google_eventarc_trigger" "cloud_run_trigger" {
+#   project         = "nova-d"
+#   location        = "us-central1"
+#   name            = "cloud-run-trigger"
+#   service_account = google_service_account.adozoo_cc.email
+#   destination {
+#     cloud_run_service {
+#       service = google_cloud_run_service.test1.name
+#     }
+#   }
+#   matching_criteria {
+#     attribute = "type"
+#     value     = "google.cloud.pubsub.topic.v1.messagePublished"
+#   }
+
+#   transport {
+#     pubsub {
+#       topic = google_pubsub_topic.test1.name
+#     }
+#   }
+# }
