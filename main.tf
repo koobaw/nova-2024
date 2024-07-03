@@ -65,7 +65,7 @@ resource "google_eventarc_trigger" "cloud_run_trigger" {
 
   transport {
     pubsub {
-      topic =  "projects/nova-d/topics/test1"
+      topic = "projects/nova-d/topics/test1"
     }
   }
 }
