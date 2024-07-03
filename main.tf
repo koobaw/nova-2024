@@ -43,6 +43,11 @@ resource "google_project_iam_member" "pubsub_invoker" {
   member  = "serviceAccount:${google_service_account.adozoo_cc.email}"
 }
 
+output "pubsub_topic_name" {
+  value = google_pubsub_topic.test1.name
+}
+
+
 # resource "google_eventarc_trigger" "cloud_run_trigger" {
 #   project         = "nova-d"
 #   location        = "us-central1"
