@@ -56,6 +56,8 @@ resource "google_eventarc_trigger" "cloud_run_trigger" {
   destination {
     cloud_run_service {
       service = google_cloud_run_service.test1.name
+      region  = "us-central1"
+      path    = "/"
     }
   }
   matching_criteria {
