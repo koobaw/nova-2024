@@ -70,12 +70,3 @@ resource "google_eventarc_trigger" "cloud_run_trigger" {
     }
   }
 }
-
-resource "google_pubsub_subscription" "cloud_run_trigger_sub" {
-  name  = "eventarc-${google_eventarc_trigger.cloud_run_trigger.location}-${google_eventarc_trigger.cloud_run_trigger.name}-sub"
-  topic = google_pubsub_topic.test1.name
-}
-
-output "subscription_id" {
-  value = google_pubsub_subscription.cloud_run_trigger_sub.name
-}
