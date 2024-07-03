@@ -70,3 +70,12 @@ resource "google_eventarc_trigger" "cloud_run_trigger" {
     }
   }
 }
+
+data "google_eventarc_trigger" "trigger" {
+ name     = "cloud-run-trigger"
+ location = "us-central1"
+}
+
+output "subscription_id" {
+ value = split("/", data.google_eventarc_trigger.trigger.transport.0.pubsub.0.subscription)[3]
+}
